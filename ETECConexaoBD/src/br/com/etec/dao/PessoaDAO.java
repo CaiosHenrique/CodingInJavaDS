@@ -18,18 +18,18 @@ public class PessoaDAO {
 
 	private Connection con;
 	
-	public PessoaDAO(Connection con)
-	{
-		setCon (con);
-	}
 	
 	public PessoaDAO()
 	{
 		
 	}
+	public PessoaDAO(Connection con)
+	{
+		setCon (con);
+	}
 	
 	public String inserir(Pessoa pessoa){
-		String sql = "insert into pessoa(nome, endereco) values (?,?))";
+		String sql = "insert into pessoa(nome, endereco) values (?,?)";
 		try
 		{
 			PreparedStatement ps = getCon().prepareStatement(sql);
@@ -42,7 +42,7 @@ public class PessoaDAO {
 			}
 			else 
 			{
-				return"Erro ao Inserir";
+				return "Erro ao Inserir";
 			}
 		}
 		catch(SQLException e)
@@ -51,6 +51,23 @@ public class PessoaDAO {
 		}
 	}
 	
-	
-
+	public String deletar(Pessoa pessoa) 
+	{
+		String sql = "delete from pessoa where nome = ?";
+		try {
+			PreparedStatement ps = getCon().prepareStatement(sql);
+			ps.setString(1, pessoa.getNome());
+			if(ps.executeUpdate() > 0) {
+				return "Deletado com sucesso";
+			}
+			else 
+			{
+				return "erro ao deletar";
+			}
+			}
+			catch(SQLException e) {
+				return e.getMessage();
+			}
+		}
 }
+	

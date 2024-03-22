@@ -1,4 +1,4 @@
-package br.com.etecconexaobd;
+package br.com.etec.conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
