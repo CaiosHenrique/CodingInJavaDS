@@ -1,10 +1,12 @@
-package br.com.fabricaroupa.conexao;
+package conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
+
+	
 	
 	public static Connection abrirConexao() {
 		Connection con = null;
