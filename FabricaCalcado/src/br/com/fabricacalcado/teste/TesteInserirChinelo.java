@@ -40,7 +40,7 @@ Connection con = Conexao.abrirConexao();
 		
 	// System.out.println(chinelodao.AlterarTamanho(chinelo));
 		
-		Conexao.fecharConexao(con);
+		
 
 	}
 
