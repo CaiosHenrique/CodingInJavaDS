@@ -18,7 +18,9 @@ public class Teste {
 
 		try {
 			//Endereco endereco = viacepservice.getEndereco("01538001");
+			int cpf = Integer.parseInt(JOptionPane.showInputDialog("Digite o CPF"));
 			Endereco  endereco = viacepservice.getEndereco(JOptionPane.showInputDialog("Digite o CEP"));
+			
 			
 			String recebeCep = endereco.getCep();
 			String recebeLogradouro = endereco.getLocalidade();
@@ -32,6 +34,7 @@ public class Teste {
 			String recebeSiafi = endereco.getSiafi();
 			
 			System.out.println("Os dados relacionados ao seu CEP são: \n" +
+				cpf + "\n" +
 				recebeCep + "\n" +	
 				recebeLogradouro + "\n" +
 				recebeComplemento + "\n" +
@@ -44,13 +47,14 @@ public class Teste {
 				recebeSiafi + "\n"
 					);
 			
-			System.out.println(enderecodao.inserir(endereco));
+			System.out.println(enderecodao.inserir(endereco, cpf));
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		Conexao.fecharConexao(con);
 		
 	}
 }
