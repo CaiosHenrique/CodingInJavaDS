@@ -16,12 +16,13 @@ public class Teste {
 		EnderecoDAO enderecodao = new EnderecoDAO(con);
 		ViacepService viacepservice = new ViacepService();
 
+	
 		try {
 			//Endereco endereco = viacepservice.getEndereco("01538001");
-			int cpf = Integer.parseInt(JOptionPane.showInputDialog("Digite o CPF"));
+			int cpf= Integer.parseInt(JOptionPane.showInputDialog("Digite o CPF"));
+			
 			Endereco  endereco = viacepservice.getEndereco(JOptionPane.showInputDialog("Digite o CEP"));
-			
-			
+		
 			String recebeCep = endereco.getCep();
 			String recebeLogradouro = endereco.getLocalidade();
 			String recebeComplemento = endereco.getComplemento();
@@ -54,7 +55,6 @@ public class Teste {
 			e.printStackTrace();
 		}
 		
-		Conexao.fecharConexao(con);
 		
 	}
 }

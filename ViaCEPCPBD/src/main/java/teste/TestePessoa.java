@@ -28,9 +28,11 @@ public class TestePessoa {
 		
 		Pessoa pessoa = new Pessoa();
 		
-		cpf = pessoa.getCpf();
-		Nome = pessoa.getNome();
-		Idade = pessoa.getIdade();
+		
+		pessoa.setCpf(cpf);
+		pessoa.setNome(Nome);
+		pessoa.setIdade(Idade);
+		
 		
 		System.out.println("Os seus dados são: \n" +
 				cpf + "\n" +

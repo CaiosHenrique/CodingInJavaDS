@@ -1,36 +1,25 @@
 package model;
 
 public class Pessoa {
-
-	private long cpf;
-	private String nome;
-	private int idade;
-	
-	
-	public long getCpf() {
-		return cpf;
-	}
-	public void setCpf(long cpf) {
-		this.cpf = cpf;
-	}
+	private String Nome;
+	private int Idade;
+	private int Cpf;
 	public String getNome() {
-		return nome;
+		return Nome;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		Nome = nome;
 	}
 	public int getIdade() {
-		return idade;
+		return Idade;
 	}
 	public void setIdade(int idade) {
-		this.idade = idade;
+		Idade = idade;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+	public int getCpf() {
+		return Cpf;
+	}
+	public void setCpf(int cpf) {
+		Cpf = cpf;
+	}
 }

@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 
 import model.Endereco;
-import model.Pessoa;
 
 
 public class EnderecoDAO {
@@ -28,7 +27,7 @@ public class EnderecoDAO {
 	}
 
 	public String inserir(Endereco endereco, int cpf) {
-		String sql = "insert into endereco(cpf, cep, logradouro, complemento, bairro, localidade, uf, ibge, gia, ddd, siafi) values (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into endereco(cpf, cep, logradouro, complemento, bairro, localidade, uf, ibge, gia, ddd, siafi) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement ps = getCon().prepareStatement(sql);
 			ps.setInt(1, cpf);
@@ -52,20 +51,16 @@ public class EnderecoDAO {
 		}
 	}
 	
-	public ArrayList<Endereco> retornarDadosEndereco(){
+	public ArrayList<Endereco> retornarDadosEndereco() {
 		String sql = "select * from endereco";
 		ArrayList<Endereco> retornarDadosEndereco = new ArrayList<Endereco>();
 		try {
 			PreparedStatement ps = getCon().prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			
 			if (rs != null) {
-				while(rs.next())
-				{
+				while (rs.next()) {
 					Endereco endereco = new Endereco();
-					Pessoa pessoa = new Pessoa();
-			
-					pessoa.setCpf(rs.getInt(1));
+					endereco.setCpf(rs.getInt(1));
 					endereco.setCep(rs.getString(2));
 					endereco.setLogradouro(rs.getString(3));
 					endereco.setComplemento(rs.getString(4));
@@ -76,18 +71,17 @@ public class EnderecoDAO {
 					endereco.setGia(rs.getString(9));
 					endereco.setDdd(rs.getString(10));
 					endereco.setSiafi(rs.getString(11));
+				
+
 					retornarDadosEndereco.add(endereco);
 				}
 				return retornarDadosEndereco;
-			}
-			else {
+			} else {
 				return null;
 			}
-			
-		}catch(SQLException e) {
-		
+		} catch (SQLException e) {
 			return null;
 		}
-		}
+	}
 
 }

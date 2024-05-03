@@ -2,7 +2,7 @@ package model;
 
 public class Endereco {
 
-	
+	private int cpf;
 	private String cep;
 	private String logradouro;
 	private String complemento;
@@ -15,7 +15,13 @@ public class Endereco {
 	private String siafi;
 
 	
+	public int getCpf() {
+		return cpf;
+	}
 
+	public void setCpf(int cpf) {
+		this.cpf = cpf;
+	}
 	
 	public String getCep() {
 		return cep;
@@ -98,7 +104,7 @@ public class Endereco {
 	}
 
 	public String toString() {
-		return "Endereco [  cep=" + cep + ", logradouro=" + logradouro + ", complemento=" + complemento + ", bairro="
+		return "Endereco [cep=" + cep + ", logradouro=" + logradouro + ", complemento=" + complemento + ", bairro="
 				+ bairro + ", localidade=" + localidade + ", uf=" + uf + ", ibge=" + ibge + ", gia=" + gia + ", ddd="
 				+ ddd + ", siafi=" + siafi + "]";
 	}
